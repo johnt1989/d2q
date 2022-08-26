@@ -1,4 +1,4 @@
-DEVICE_PATH := device/samsung/d2q
+LOCAL_PATH := device/samsung/d2q
 
 ALLOW_MISSING_DEPENDENCIES := true
 
@@ -18,6 +18,7 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := generic
 
+# Architecture
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
