@@ -1,4 +1,5 @@
-MKBOOTIMG := device/samsung/d2q/mkbootimg
+DEVICE_PATH := device/samsung/d2q
+MKBOOTIMG := $(DEVICE_PATH)/mkbootimg
 
 FLASH_IMAGE_TARGET ?= $(PRODUCT_OUT)/recovery.tar
 
