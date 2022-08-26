@@ -1,5 +1,4 @@
+ifneq ($(filter d2q, $(TARGET_DEVICE)),)
 LOCAL_PATH := $(call my-dir)
-
-ifeq ($(TARGET_DEVICE),d2q)
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
+include $(call all-makefiles-under,$(LOCAL_PATH))
 endif
