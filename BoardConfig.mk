@@ -1,7 +1,5 @@
 LOCAL_PATH := device/samsung/d2q
 
-ALLOW_MISSING_DEPENDENCIES := true
-
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := msmnile
@@ -31,6 +29,8 @@ TARGET_USES_64_BIT_BINDER := true
 ENABLE_CPUSETS := true
 ENABLE_SCHEDBOOST := true
 
+ALLOW_MISSING_DEPENDENCIES := true
+
 # File systems
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
@@ -51,7 +51,7 @@ TARGET_KERNEL_ARCH := arm64
 BOARD_BOOT_HEADER_VERSION := 1
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 swiotlb=2048 androidboot.usbcontroller=a600000.dwc3 firmware_class.path=/vendor/firmware_mnt/image androidboot.selinux=permissive
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_OFFSET := 0x00008000
 BOARD_RAMDISK_OFFSET := 0x02000000
@@ -92,9 +92,9 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 # Crypto
-PLATFORM_SECURITY_PATCH := 2099-12-31
-VENDOR_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 16.1.0
+PLATFORM_SECURITY_PATCH := 2025-12-31
+VENDOR_SECURITY_PATCH := 2025-12-31
+PLATFORM_VERSION := 11
 TW_INCLUDE_CRYPTO := false
 TW_INCLUDE_CRYPTO_FBE := false
 
