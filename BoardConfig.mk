@@ -1,3 +1,23 @@
+SHRP_DEVICE_CODE := d2q
+SHRP_PATH := device/samsung/$(SHRP_DEVICE_CODE)
+SHRP_MAINTAINER := Doc714
+SHRP_REC_TYPE := SAR
+SHRP_DEVICE_TYPE := A_Only
+SHRP_REC := /dev/block/bootdevice/by-name/recovery
+SHRP_EDL_MODE := 1
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /external_sd
+SHRP_OTG := /usb_otg
+SHRP_FLASH := 1
+SHRP_NOTCH := true
+SHRP_EXPRESS := true
+SHRP_EXPRESS_USE_DATA := true
+SHRP_DARK := true
+SHRP_SKIP_DEFAULT_ADDON_1 := true
+SHRP_SKIP_DEFAULT_ADDON_2 := true
+SHRP_SKIP_DEFAULT_ADDON_4 := true
+INC_IN_REC_MAGISK := true
+
 LOCAL_PATH := device/samsung/d2q
 
 # Bootloader
