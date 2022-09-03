@@ -126,13 +126,13 @@ SHRP_EDL_MODE := 1
 SHRP_EXTERNAL := /external_sd
 SHRP_INTERNAL := /sdcard
 SHRP_OTG := /usbotg
-SHRP_REC := /dev/block/bootdevice/recovery
+SHRP_REC := /dev/block/platform/soc/1d84000.ufshc/by-name/recovery
 SHRP_REC_TYPE := SAR
 SHRP_DEVICE_TYPE := A-Only
 SHRP_FLASH := 1
 SHRP_EXPRESS := true
 SHRP_DEV_USE_HEX := true
-SHRP_OFFICIAL := true
+#SHRP_OFFICIAL := true
 SHRP_DARK := true
 #SHRP_ALT_REBOOT := true
 #SHRP_NOTCH := true
@@ -144,7 +144,7 @@ SHRP_DARK := true
 #SHRP_STATUSBAR_LEFT_PADDING := 20
 #SHRP_AB := true
 
-SHRP_EXTERNAL_ADDON_PATH := "device/samsung/d2q/prebuilt/"
+#SHRP_EXTERNAL_ADDON_PATH := "device/samsung/d2q/prebuilt/"
 
 # Added treblize addon
 #SHRP_EXTERNAL_ADDON_1_NAME := "Add treble compatibility"
