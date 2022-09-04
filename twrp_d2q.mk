@@ -1,5 +1,3 @@
-DEVICE_PATH := device/samsung/d2q
-
 PRODUCT_RELEASE_NAME := d2q
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
