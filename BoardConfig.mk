@@ -1,23 +1,3 @@
-#
-# Copyright (C) 2020 The Android Open Source Project
-#
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
-
-DEVICE_CODENAME := d2q
-DEVICE_PATH := device/samsung/$(DEVICE_CODENAME)
-
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := msmnile
@@ -59,8 +39,8 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno640
 QCOM_BOARD_PLATFORMS += msmnile
 
 # Kernel
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/recoverydtbo
+TARGET_PREBUILT_KERNEL := device/samsung/d2q/prebuilt/Image.gz-dtb
+BOARD_PREBUILT_DTBOIMAGE := device/samsung/d2q/prebuilt/recoverydtbo
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_KERNEL_ARCH := arm64
 
@@ -75,12 +55,12 @@ BOARD_RAMDISK_OFFSET := 0x02000000
 BOARD_KERNEL_SECOND_OFFSET := 0x00f00000
 BOARD_KERNEL_TAGS_OFFSET := 0x01e00000
 BOARD_DTB_OFFSET := 0x01f00000
-MKBOOTIMG := $(DEVICE_PATH)/mkbootimg
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_PATH)/bootimg.mk
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET) --second_offset $(BOARD_KERNEL_SECOND_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION) --pagesize $(BOARD_KERNEL_PAGESIZE) --board "SRPSC04A005"
 BOARD_MKBOOTIMG_ARGS += --recovery_dtbo $(BOARD_PREBUILT_DTBOIMAGE)
+MKBOOTIMG := device/samsung/d2q/mkbootimg
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/d2q/bootimg.mk
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -103,14 +83,13 @@ TARGET_COPY_OUT_VENDOR := vendor
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
-BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
-BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += \
-    --set_hashtree_disabled_flag \
-    --flag 2
+BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --set_hashtree_disabled_flag
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 2
 
 # Crypto
 PLATFORM_SECURITY_PATCH := 2025-12-31
@@ -120,7 +99,7 @@ TW_INCLUDE_CRYPTO := false
 TW_INCLUDE_CRYPTO_FBE := false
 
 # TWRP specific build flags
-TW_DEVICE_VERSION := 4_afaneh92
+TW_DEVICE_VERSION := Doc714
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
@@ -138,27 +117,3 @@ TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_USE_TOOLBOX := true
 TARGET_USES_MKE2FS := true
-
-SHRP_PATH := $(DEVICE_PATH)
-SHRP_MAINTAINER := doc714
-SHRP_DEVICE_CODE := $(DEVICE_CODENAME)
-SHRP_EDL_MODE := 1
-SHRP_EXTERNAL := /external_sd
-SHRP_INTERNAL := /sdcard
-SHRP_OTG := /usb_otg
-SHRP_FLASH := 1
-SHRP_CUSTOM_FLASHLIGHT := false
-SHRP_FLASH_MAX_BRIGHTNESS := 200
-SHRP_REC := /dev/block/bootdevice/by-name/recovery
-SHRP_AB := false
-SHRP_REC_TYPE := SAR
-SHRP_DEVICE_TYPE := A_Only
-SHRP_STATUSBAR_RIGHT_PADDING := 20
-SHRP_STATUSBAR_LEFT_PADDING := 20
-SHRP_NOTCH := true
-SHRP_EXPRESS := true
-SHRP_OFFICIAL := false
-SHRP_DARK := true
-SHRP_NO_SAR_AUTOMOUNT := true
-LZMA_RAMDISK_TARGETS := recovery
-LZMA_COMPRESSION := -9
