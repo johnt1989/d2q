@@ -11,3 +11,5 @@ make recoveryimage
 
 Kernel source:
 https://github.com/mohammad92/android_kernel_samsung_sm8150
+
+I do not own / write any of the files in this repo
