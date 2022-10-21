@@ -1,8 +1,8 @@
 [
   {
-    "remote": "TeamWin",
+    "remote": "omnirom",
     "repository": "android_vendor_qcom_opensource_commonsys",
     "target_path": "vendor/qcom/opensource/commonsys",
-    "branch": "android-9.0"
+    "branch": "android-11"
   }
 ]
