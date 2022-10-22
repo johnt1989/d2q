@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/samsung/d2q
-
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := msmnile
