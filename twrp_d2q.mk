@@ -17,6 +17,9 @@
 # Release name
 PRODUCT_RELEASE_NAME := d2q
 
+TARGET_USE_QTI_BT_STACK := true
+BOARD_HAVE_BLUETOOTH_QCOM := true
+
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
