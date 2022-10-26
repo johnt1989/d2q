@@ -1,8 +1,8 @@
 [
   {
     "remote": "github",
-    "repository": "omnirom/android_vendor_qcom_opensource_commonsys",
+    "repository": "johnt1989/android_vendor_qcom_opensource_commonsys",
     "target_path": "vendor/qcom/opensource/commonsys",
-    "branch": "android-11"
+    "branch": "android-9.0"
   }
 ]
