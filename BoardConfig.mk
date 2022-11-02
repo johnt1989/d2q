@@ -14,6 +14,20 @@
 # limitations under the License.
 #
 
+SHRP_DEVICE_CODE := d2q
+SHRP_PATH := /device/samsung/d2q
+SHRP_MAINTAINER := Doc714
+SHRP_REC_TYPE := SAR
+SHRP_DEVICE_TYPE := A_Only
+SHRP_REC := /dev/block/platform/soc/1d84000.ufshc/by-name/recovery
+SHRP_EDL_MODE := 1
+SHRP_INTERNAL := /sdcard
+SHRP_EXTERNAL := /external_sdcard
+SHRP_OTG := /usb_otg
+SHRP_EXPRESS := true
+SHRP_EXPRESS_USE_DATA := true
+INC_IN_REC_MAGISK := true
+
 # Bootloader
 BOARD_VENDOR := samsung
 TARGET_SOC := msmnile
