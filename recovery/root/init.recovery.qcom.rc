@@ -25,8 +25,38 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+import /init.recovery.qcom_decrypt.rc
+
+on init
+    setprop prepdecrypt.setpatch true
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
 
+    # Mount firmware
+    mkdir /vendor/firmware_mnt
+    mount vfat /dev/block/bootdevice/by-name/apnhlos /vendor/firmware_mnt ro
+
+    # Mount efs
+    mkdir /mnt/vendor/efs
+    mount ext4 /dev/block/bootdevice/by-name/efs /mnt/vendor/efs ro
+
     export ANDROID_ROOT /system_root
+
+on post-fs-data
+    mkdir /mnt/vendor/efs/DAK 0775 system system
+    restorecon -R /mnt/vendor/efs/DAK
+    mkdir /data/vendor/keymaster 0775 system system
+    mkdir /data/vendor/gatekeeper 0770 system system
+
+on property:vendor.keymaster.strongbox.version=40
+    enable keymaster-sb-4-0
+
+on property:crypto.ready=1
+    start keymaster-sb-4-0
+
+on property:crypto.ready=0
+    stop keymaster-sb-4-0
+    umount /vendor/firmware_mnt
+    umount /mnt/vendor/efs
